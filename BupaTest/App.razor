@@ -1,0 +1,62 @@
+﻿@page "/"
+@namespace BupaTest.Pages
+@using BupaTest.Services
+@using BupaTest.Models
+@using BupaTest.Exceptions
+@inject MotApiService MotApi
+
+<div class="container">
+    <h1>Vehicle MOT Checker</h1>
+
+    <ErrorBoundary>
+        <EditForm Model="@motRequest" OnValidSubmit="@HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="form-group">
+                <label for="registrationNumber">Registration Number:</label>
+                <InputText id="registrationNumber" class="form-control" @bind-Value="motRequest.RegistrationNumber" placeholder="e.g., ABC1234" />
+            </div>
+            <button type="submit" class="btn btn-primary">Check MOT</button>
+        </EditForm>
+    </ErrorBoundary>
+
+    @if (motData != null)
+    {
+        <div class="mot-details">
+            <h2>MOT Details</h2>
+            <p><strong>Make:</strong> @motData.Make</p>
+            <p><strong>Model:</strong> @motData.Model</p>
+            <p><strong>Colour:</strong> @motData.Colour</p>
+            <p><strong>MOT Expiry Date:</strong> @motData.MotExpiryDate</p>
+            <p><strong>Mileage:</strong> @motData.Mileage</p>
+        </div>
+    }
+    else if (errorMessage != null)
+    {
+        <div class="alert alert-danger">@errorMessage</div>
+    }
+</div>
+
+@code {
+    private LatestMotData? motData;
+    private string? errorMessage;
+    private MotRequest motRequest = new();
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            motData = await MotApi.GetMotData(motRequest.RegistrationNumber);
+            errorMessage = null;
+        }
+        catch (MotApiException ex)
+        {
+            errorMessage = $"Error: {ex.Message} (Code: {ex.ErrorCode})";
+            motData = null;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "An unexpected error occurred. Please try again later.";
+        }
+    }
+}
