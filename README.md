@@ -24,11 +24,11 @@ To get a copy of this project running on your local machine for development and 
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/vehicle-mot-checker.git
+   git clone https://github.com/simon-hirst/BupaTest.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd vehicle-mot-checker
+   cd BupaTest
    ```
 3. Restore the dependencies:
    ```bash
