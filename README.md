@@ -28,8 +28,7 @@ To get a copy of this project running on your local machine for development and 
    ```
 2. Navigate to the project directory (second cd is necessary):
    ```bash
-   cd BupaTest
-   cd BupaTest
+   cd BupaTest/BupaTest
    ```
 3. Restore the dependencies:
    ```bash
