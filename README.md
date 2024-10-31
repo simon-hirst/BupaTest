@@ -26,8 +26,9 @@ To get a copy of this project running on your local machine for development and 
    ```bash
    git clone https://github.com/simon-hirst/BupaTest.git
    ```
-2. Navigate to the project directory:
+2. Navigate to the project directory (second cd is necessary):
    ```bash
+   cd BupaTest
    cd BupaTest
    ```
 3. Restore the dependencies:
