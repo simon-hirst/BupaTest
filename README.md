@@ -80,6 +80,4 @@ Contributions are welcome! To contribute to the project:
 This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
-[Your Name] - [Your Email]  
-[Your GitHub profile link]  
-[Optional: Additional links to documentation, tutorials, or other relevant resources.]
+Simon Hirst - simonhirst@pm.me
