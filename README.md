@@ -50,7 +50,7 @@ dotnet run
 Open your web browser and navigate to `http://localhost:5000` (or the URL displayed in your terminal).
 
 ### How to Check MOT Status
-1. Enter the vehicle registration number in the provided input field.
+1. Enter the vehicle registration number in the provided input field (note spaces are not permitted).
 2. Click the "Check MOT" button.
 3. The application will display the MOT details or an error message if the request fails.
 
